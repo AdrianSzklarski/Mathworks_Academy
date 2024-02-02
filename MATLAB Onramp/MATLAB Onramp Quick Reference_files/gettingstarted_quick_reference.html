@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<!-- saved from url=(0117)https://matlabacademy-content.mathworks.com/4.59.3/R2023b/content/quick-reference/gettingstarted_quick_reference.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+    <title>MATLAB Onramp - Quick Reference</title>
+
+    <link rel="stylesheet" href="./training.lecture.css">
+
+    <style>
+        @page {
+            size: auto;
+            margin: 0.5in;
+        }
+        html {
+            background-color: #eeeeee;
+        }
+        body.lectureContent.quickReference {
+            border: 1px solid #cccccc;
+            border-top: 0px;
+            border-bottom: 0px;
+            padding: 0;
+            max-width: inherit;
+        }
+        nav {
+            top: 70px;
+            bottom: 0;
+            width: 250px;
+            position: absolute;
+            padding: 10px 25px 35px 25px;
+            overflow: auto;
+            border-right: 1px solid #cccccc;
+        }
+        nav ol, nav li {
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+        nav ol.lesson {
+            list-style: none;
+            margin-left: 20px;
+        }
+        nav a, nav a:active, nav a:visited {
+            text-decoration:none;
+            cursor:pointer;
+            color: black;
+        }
+        .mainContent.single-chapter {
+            left: 0;
+        }
+        .quickReferenceTitle.single-chapter {
+            margin-left: -275px;
+        }
+        .hideClass {
+            visibility: hidden;
+        }
+        .showClass {
+            visibility: visible;
+        }
+        .lessonTitle{
+            font-size: 16pt;
+            font-weight:bold;
+        }
+        .arrow:focus:not(.clicked) {
+             box-shadow: 0 0 0 2px #bfbfbf;
+        }
+        nav ul li .arrow.arrow-right {
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 10px solid black;
+            display: inline-block;
+            margin-right: 9px;
+        }
+        nav ul li .arrow.arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 10px solid black;
+            display: inline-block;
+            margin-right: 7px;
+        }
+        .chapterLinkContainer {
+            display: flex;
+            align-items: baseline;
+        }
+        .chapterLink.current-chapter{
+            font-weight: bold;
+        }
+        .lessonElement.current-lesson{
+            font-weight: bold;
+        }
+        .msg{
+            padding-left: 6px;
+            font-size: 12.5px;
+            padding-bottom: 10px;
+            line-height: 15px;
+            width: 240px;
+        }
+        .pageHeader {
+            display:block;
+            background: rgba(0, 102, 177, 1) none !important;
+            height: 35px;
+        }
+        .pageHeader .academyLink {
+            position: absolute;
+            left: 12px;
+            text-decoration: none;
+        }
+        .quickReferenceHeader {
+            position: absolute;
+            top: 35px;
+            height: 35px;
+            left: 0;
+            right: 0;
+            border-bottom: 1px solid #cccccc;
+            z-index: 10;
+        }
+        .mainContent {
+            position: absolute;
+            overflow: auto;
+            left: 300px;
+            right: 0;
+            top: 70px;
+            bottom: 0;
+            padding: 0 30px;
+        }
+        h1.chapterTitle {
+            margin-bottom: 8px;
+            margin-top: 10px;
+            color: #c45400;
+            line-height: 1.1em;
+        }
+        .toggleContainer {
+            width: 300px;
+            background-color: #eeeeee;
+            height: 35px;
+            line-height: 35px;
+            border: none;
+            vertical-align: top;
+            border-right: 1px solid #cccccc;
+            cursor: pointer;
+            float: left;
+            color: #616161;
+            margin-left: 1px;
+        }
+        .headerContainer {
+            line-height: 35px;
+            height: 35px;
+            display: flex;
+        }
+        h2.quickReferenceTitle {
+            font-size: 17pt;
+            color: black;
+            display:inline-block;
+            margin-left:25px;
+            white-space: nowrap;
+        }
+
+        .pageHeader h1.appLogo{
+            color: white;
+            font-size: 11pt;
+            display: inline-block;
+            padding-top: 9px;
+            font-family: "futura-pt","Arial","Helvetica",sans-serif !important;
+            font-style: normal !important;
+            font-weight: 500 !important;
+            letter-spacing: -0.04em !important;
+            text-shadow: 0px 0px 2px gray;
+        }
+
+        .pageHeader h1.courseTitle{
+            padding-top: 9px;
+            font-size: 14pt;
+            color: white;
+            text-align: center;
+            font-weight: 700 !important;
+            letter-spacing: 0em !important;
+        }
+        .hamburgerIcon {
+            font-size: 15pt;
+            margin-left: -145px;
+            margin-right: 9px;
+        }
+        .toggleContainer span {
+            vertical-align: middle;
+        }
+        #closeToc {
+            float:right;
+            color: #297DD6;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        #expand,#collapse {
+            background: none;
+            border: none;
+            margin-bottom: 8px;
+            color: #297DD6;
+        }
+        #collapse {
+            border-left: 1px solid #bfbfbf;
+        }
+        h1.chapterTitle {
+            font-size: 17pt;
+        }
+        h1 {
+            letter-spacing: 0 !important;
+        }
+        footer {
+            margin: 15px 0;
+        }
+
+
+        .noToc #closeToc {
+            display:none;
+        }
+        .noToc .toggleContainer {
+            background-color: white;
+            width: 135px;
+            color: #297DD6;
+            padding-left: 128px;
+        }
+        .noToc nav {
+            display:none;
+        }
+        .noToc .mainContent {
+            left:0;
+        }
+
+        .chapterLink.inactive{
+            cursor: default;
+            color: #bbb8b8;
+        }
+
+        .print {
+            float: right;
+            padding-right: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0076a8;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-left: auto;
+            padding-left: 10px;
+            background: none;
+            border: none;
+        }
+
+        .print img {
+            height: 22px;
+            width: 22px;
+            vertical-align: middle;
+            padding-right: 5px;
+            padding-bottom: 2px;
+        }
+
+        .printable-slide-show {
+            display: none;
+        }
+
+        @media  print {
+            body {
+                border: none !important;
+            }
+
+            .mainContent {
+                position: static;
+                overflow: visible;
+            }
+
+            .quickReferenceHeader, .academyLink, nav {
+                display: none;
+            }
+
+            a::after {
+                content: none;
+            }
+
+            pre.lang-matlab {
+                border: none;
+            }
+
+            .pageHeader {
+                background: none !important;
+            }
+
+            .slide-sequence {
+                display: none;
+            }
+
+            .printable-slide-show {
+                display: initial;
+            }
+        }
+    </style>
+    <script>
+        var dojoConfig = {
+            async: true,
+            map: {
+                "*": {
+                    "MW/Log": "mw-log/Log"
+                }
+            },
+            blankGif: "https:\/\/course-creator-code.mathworks.com\/course-creator-1.12.1\/dist-webpack\/images\/blank.gif",
+            baseUrl: "https:\/\/course-creator-code.mathworks.com\/course-creator-1.12.1",
+            isRelease: true
+        };
+        window.dojoBaseUrl = "https:\/\/course-creator-code.mathworks.com\/course-creator-1.12.1";
+    </script>
+    <script src="./bundle.quick_reference.js.pobierz"></script>
+</head>
+<body class="lectureContent quickReference showClass">
+    <div class="pageHeader">
+        <h1 class="courseTitle">MATLAB Onramp</h1>
+    </div>
+    <div class="quickReferenceHeader">
+        <button class="toggleContainer hideClass">
+            <span class="hamburgerIcon">☰</span><span>CONTENT</span><span id="closeToc">Close</span>
+        </button>
+        <div class="headerContainer">
+            <h2 class="quickReferenceTitle single-chapter">Quick Reference</h2>
+            <button class="print" onclick="window.print()">
+                <img alt="Print" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxkZWZzPjxzdHlsZT4uY2xzLTF7aXNvbGF0aW9uOmlzb2xhdGU7fS5jbHMtMntmaWxsOnVybCgjcmFkaWFsLWdyYWRpZW50KTt9LmNscy0ze2ZpbGw6dXJsKCNsaW5lYXItZ3JhZGllbnQpO30uY2xzLTR7ZmlsbDp1cmwoI2xpbmVhci1ncmFkaWVudC0yKTt9LmNscy01e2ZpbGw6dXJsKCNyYWRpYWwtZ3JhZGllbnQtMik7fS5jbHMtNntmaWxsOnVybCgjbGluZWFyLWdyYWRpZW50LTMpO30uY2xzLTEwLC5jbHMtN3tmaWxsOiNmZmY7fS5jbHMtOHtmaWxsOnVybCgjcmFkaWFsLWdyYWRpZW50LTMpO30uY2xzLTl7b3BhY2l0eTowLjI7bWl4LWJsZW5kLW1vZGU6bXVsdGlwbHk7fS5jbHMtMTB7b3BhY2l0eTowLjY7fTwvc3R5bGU+PHJhZGlhbEdyYWRpZW50IGlkPSJyYWRpYWwtZ3JhZGllbnQiIGN4PSI0LjQyIiBjeT0iLTAuMTkiIHI9IjIxLjQ2IiBncmFkaWVudFRyYW5zZm9ybT0ibWF0cml4KDAuNjcsIC0wLjc0LCAwLjg1LCAwLjc2LCAxLjY1LCAzLjI0KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC4yOCIgc3RvcC1jb2xvcj0iI2ZmZiIvPjxzdG9wIG9mZnNldD0iMC4zNiIgc3RvcC1jb2xvcj0iI2Y5ZmJmYyIvPjxzdG9wIG9mZnNldD0iMC40NyIgc3RvcC1jb2xvcj0iI2U4ZWVmMiIvPjxzdG9wIG9mZnNldD0iMC42IiBzdG9wLWNvbG9yPSIjY2NkOWUyIi8+PHN0b3Agb2Zmc2V0PSIwLjczIiBzdG9wLWNvbG9yPSIjYTViY2NjIi8+PHN0b3Agb2Zmc2V0PSIwLjg0IiBzdG9wLWNvbG9yPSIjODJhMmI4Ii8+PHN0b3Agb2Zmc2V0PSIwLjk5IiBzdG9wLWNvbG9yPSIjNjhhMmQ3Ii8+PC9yYWRpYWxHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudCIgeDE9IjEyLjAxIiB5MT0iMiIgeDI9IjEyLjAxIiB5Mj0iOC44OSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC4xIiBzdG9wLWNvbG9yPSIjOGRhMmIzIi8+PHN0b3Agb2Zmc2V0PSIwLjU0IiBzdG9wLWNvbG9yPSIjNzA4YmEwIi8+PHN0b3Agb2Zmc2V0PSIwLjYxIiBzdG9wLWNvbG9yPSIjNmU4OTllIi8+PHN0b3Agb2Zmc2V0PSIwLjY1IiBzdG9wLWNvbG9yPSIjNjU4MTk3Ii8+PHN0b3Agb2Zmc2V0PSIwLjY5IiBzdG9wLWNvbG9yPSIjNTc3NDhiIi8+PHN0b3Agb2Zmc2V0PSIwLjcyIiBzdG9wLWNvbG9yPSIjNDQ2MTdiIi8+PHN0b3Agb2Zmc2V0PSIwLjc0IiBzdG9wLWNvbG9yPSIjMzA0ZjZhIi8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9ImxpbmVhci1ncmFkaWVudC0yIiB4MT0iMTIiIHkxPSIxOCIgeDI9IjEyIiB5Mj0iOCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC4xMSIgc3RvcC1jb2xvcj0iIzI0MjQyNCIvPjxzdG9wIG9mZnNldD0iMC4yIiBzdG9wLWNvbG9yPSIjMzQzNDM0Ii8+PHN0b3Agb2Zmc2V0PSIwLjQyIiBzdG9wLWNvbG9yPSIjNTY1NjU2Ii8+PHN0b3Agb2Zmc2V0PSIwLjYzIiBzdG9wLWNvbG9yPSIjNmU2ZTZlIi8+PHN0b3Agb2Zmc2V0PSIwLjgyIiBzdG9wLWNvbG9yPSIjN2M3YzdjIi8+PHN0b3Agb2Zmc2V0PSIwLjk5IiBzdG9wLWNvbG9yPSIjODE4MTgxIi8+PC9saW5lYXJHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InJhZGlhbC1ncmFkaWVudC0yIiBjeD0iMC4zNSIgY3k9IjEuMTQiIHI9IjIyLjU2IiBncmFkaWVudFRyYW5zZm9ybT0idHJhbnNsYXRlKDEuOTEgNS44Mykgc2NhbGUoMSAwLjk4KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMC4xMyIgc3RvcC1jb2xvcj0iI2Q5ZDlkOSIvPjxzdG9wIG9mZnNldD0iMC4yNyIgc3RvcC1jb2xvcj0iI2NjYyIvPjxzdG9wIG9mZnNldD0iMC41MyIgc3RvcC1jb2xvcj0iI2FiYWJhYiIvPjxzdG9wIG9mZnNldD0iMC44NyIgc3RvcC1jb2xvcj0iIzc2NzY3NiIvPjxzdG9wIG9mZnNldD0iMC44OCIgc3RvcC1jb2xvcj0iIzczNzM3MyIvPjwvcmFkaWFsR3JhZGllbnQ+PGxpbmVhckdyYWRpZW50IGlkPSJsaW5lYXItZ3JhZGllbnQtMyIgeDE9IjExLjg5IiB5MT0iMjIiIHgyPSIxMS44OSIgeTI9IjE0IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMzA0ZjZhIi8+PHN0b3Agb2Zmc2V0PSIwLjI3IiBzdG9wLWNvbG9yPSIjNzA4YmEwIi8+PHN0b3Agb2Zmc2V0PSIwLjUzIiBzdG9wLWNvbG9yPSIjNmU4OTllIi8+PHN0b3Agb2Zmc2V0PSIwLjY5IiBzdG9wLWNvbG9yPSIjNjU4MTk3Ii8+PHN0b3Agb2Zmc2V0PSIwLjgxIiBzdG9wLWNvbG9yPSIjNTc3NDhiIi8+PHN0b3Agb2Zmc2V0PSIwLjkyIiBzdG9wLWNvbG9yPSIjNDQ2MTdiIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMzA0ZjZhIi8+PC9saW5lYXJHcmFkaWVudD48cmFkaWFsR3JhZGllbnQgaWQ9InJhZGlhbC1ncmFkaWVudC0zIiBjeD0iLTQ0LjIyIiBjeT0iLTM0LjM1IiByPSIyMC4xMyIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgwLjY2LCAtMC41OSwgMC42NiwgMC42LCA1OS4wNCwgMTcuOTYpIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agb2Zmc2V0PSIwLjExIiBzdG9wLWNvbG9yPSIjZmZmIi8+PHN0b3Agb2Zmc2V0PSIwLjIzIiBzdG9wLWNvbG9yPSIjZjlmYmZjIi8+PHN0b3Agb2Zmc2V0PSIwLjM5IiBzdG9wLWNvbG9yPSIjZThlZWYyIi8+PHN0b3Agb2Zmc2V0PSIwLjU3IiBzdG9wLWNvbG9yPSIjY2NkOWUyIi8+PHN0b3Agb2Zmc2V0PSIwLjc2IiBzdG9wLWNvbG9yPSIjYTViY2NjIi8+PHN0b3Agb2Zmc2V0PSIwLjkxIiBzdG9wLWNvbG9yPSIjODJhMmI4Ii8+PC9yYWRpYWxHcmFkaWVudD48L2RlZnM+PGcgY2xhc3M9ImNscy0xIj48ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIj48cmVjdCBjbGFzcz0iY2xzLTIiIHg9IjQuNTMiIHk9IjIuNCIgd2lkdGg9IjE0Ljk1IiBoZWlnaHQ9IjUuOTkiLz48cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0xOSwzVjhINVYzSDE5bTEtMUg0VjguODlIMjBaIi8+PHBhdGggY2xhc3M9ImNscy00IiBkPSJNMiw4YTIsMiwwLDAsMC0yLDJ2NmEyLDIsMCwwLDAsMiwySDIyYTIsMiwwLDAsMCwyLTJWMTAuMjRBMi4yLDIuMiwwLDAsMCwyMS43NSw4WiIvPjxyZWN0IGNsYXNzPSJjbHMtNSIgeD0iMSIgeT0iOSIgd2lkdGg9IjIyIiBoZWlnaHQ9IjgiLz48cGF0aCBjbGFzcz0iY2xzLTYiIGQ9Ik0yMi42NywyMkgxLjEyTDQuMiwxNEgxOS40NmwzLjIxLDdaIi8+PGltYWdlIHdpZHRoPSI3MyIgaGVpZ2h0PSI3NCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTM0IC0yNSkiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBRWtBQUFCS0NBWUFBQUQzNTNseUFBQUFDWEJJV1hNQUFBc1NBQUFMRWdIUzNYNzhBQUFBeDBsRVFWUjRYdTNhb1JFRFFRd0VRY3ZKT3Y4STlCbjhEWElkNk1hTHBnUTF1L3ZoM2ZjMFFLUkVwRUNrUUtSQXBFQ2tRS1JBcEVDa1FLUkFwRUNrUUtSQXBFQ2tRS1JBcEVDa1FLUkFwRUNrUUtSQXBFQ2tRS1JBcEVDa1FLUkFwRUNrUUtSQXBFQ2tRS1RndWtnemM5MFQ1M1dSZHZkMzJ2emIrTDQ5dSs2U2JpUlNJRklnVWlCU0lGSWdVaUJTSUZJZ1VpQlNJRklnVWlCU0lGSWdVaUJTSUZJZ1VpQlNJRklnVWlCU0lGSWdVaUJTSUZJZ1VpQlNJRklnVWlCU0lGSWdVaUJTOEFEYld3cnpxZ0dJT2dBQUFBQkpSVTVFcmtKZ2dnPT0iLz48cmVjdCBjbGFzcz0iY2xzLTciIHg9IjUiIHk9IjMiIHdpZHRoPSIxNCIgaGVpZ2h0PSIxIi8+PHBvbHlnb24gY2xhc3M9ImNscy04IiBwb2ludHM9IjIuMzkgMjEgNC44NiAxNSAxOC44MiAxNSAyMS4zOSAyMSAyLjM5IDIxIi8+PHJlY3QgY2xhc3M9ImNscy05IiB4PSI1IiB5PSIxNSIgd2lkdGg9IjE0IiBoZWlnaHQ9IjEiLz48cG9seWdvbiBjbGFzcz0iY2xzLTEwIiBwb2ludHM9IjIzIDEyIDIyIDEwIDIgMTAgMSAxMiAxIDkgMjMgOSAyMyAxMiIvPjwvZz48L2c+PC9zdmc+">
+                Print Quick Reference
+            </button>
+        </div>
+    </div>
+    <nav class="hideClass">
+        <div class="msg">Showing course modules that have contents in the Quick Reference.</div>
+        <button id="expand" data-mode="expand">Expand All</button>
+        <button id="collapse" data-mode="collapse">Collapse All</button>
+        <ul>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li>
+                <div class="chapterLinkContainer">
+                    <div class="arrow arrow-right" tabindex="0"></div>
+                    <a class="chapterLink" ,="" tabindex="0" role="button" onclick="scrollToChapter(&#39;Conclusion&#39;)" onkeydown="if(event.key===&#39;Enter&#39;){scrollToChapter(&#39;Conclusion&#39;)}">Conclusion</a>           
+                </div>
+                <ol class="lesson" style="display:none;">
+                    <li>
+                        <a class="lessonElement" href="https://matlabacademy-content.mathworks.com/4.59.3/R2023b/content/quick-reference/gettingstarted_quick_reference.html#Additional%20Resources">Additional Resources</a>
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </nav>
+    <div class="mainContent single-chapter">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div>
+            <a name="Conclusion" id="Conclusion"></a>
+            <h1 class="chapterTitle">Conclusion</h1>
+            <section>
+                <a name="Additional Resources"></a>
+                <div class="lessonTitle">Additional Resources</div>
+                <section>
+                    <div style="max-width: 770px;" class="hideThenShow">
+                        <h1>Summary of MATLAB Onramp</h1> 
+<div class="spacer"></div> 
+<div style="width:760px"> 
+ <div class="descObj"> 
+  <div class="desc"> 
+   <h2>Basic Syntax</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><a href="https://www.mathworks.com/help/matlab/matlab_env/create-and-edit-variables.html" target="_blank"><code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">x</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="const">pi</span></code></a></td> 
+      <td>Create variables and assign values with the equal sign (<code class="lang-matlab prettyprinted prettyprint" style=""><span class="pun">=</span></code>).<br>The left side (<code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">x</span></code>) is the variable name, and the right side (<code class="lang-matlab prettyprinted prettyprint" style=""><span class="const">pi</span></code>) is its value.</td> 
+     </tr> 
+     <tr> 
+      <td><a href="https://www.mathworks.com/help/matlab/learn_matlab/calling-functions.html" target="_blank"><code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">y</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="fun">sin</span><span class="tag">(</span><span class="lit">-5</span><span class="tag">)</span></code></a></td> 
+      <td>Provide inputs to a function using parentheses.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Desktop Management</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Function</th> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><a href="https://www.mathworks.com/help/matlab/ref/save.html" target="_blank"><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">save</span></code></a></td> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">save</span><span class="pln"> </span><span style="color:rgb(160,32,240)"><span class="ident">data.mat</span></span></code></td> 
+      <td>Save your current workspace to a MAT-file.</td> 
+     </tr> 
+     <tr> 
+      <td><a href="https://www.mathworks.com/help/matlab/ref/load.html" target="_blank"><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">load</span></code></a></td> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">load</span><span class="pln"> </span><span style="color:rgb(160,32,240)"><span class="ident">data.mat</span></span></code></td> 
+      <td>Load the variables in a MAT-file to the workspace.</td> 
+     </tr> 
+     <tr> 
+      <td><a href="https://www.mathworks.com/help/matlab/ref/clear.html" target="_blank"><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">clear</span></code></a></td> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">clear</span></code></td> 
+      <td>Clear all variables from the workspace.</td> 
+     </tr> 
+     <tr> 
+      <td><a href="https://www.mathworks.com/help/matlab/ref/clc.html" target="_blank"><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">clc</span></code></a></td> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">clc</span></code></td> 
+      <td>Clear all text from the Command Window.</td> 
+     </tr> 
+     <tr> 
+      <td><a href="https://www.mathworks.com/help/matlab/ref/format.html" target="_blank"><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">format</span></code></a></td> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">format</span><span class="pln"> </span><span style="color:rgb(160,32,240)"><span class="ident">long</span></span></code></td> 
+      <td>Change how numeric output appears in the Command Window.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Array Types</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">4</span></code></td> 
+      <td>scalar</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="tag">[</span><span class="lit">3</span><span class="pln"> </span><span class="lit">5</span><span class="tag">]</span></code></td> 
+      <td>row vector</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="tag">[</span><span class="lit">1</span><span class="pun">;</span><span class="lit">3</span><span class="tag">]</span></code></td> 
+      <td>column vector</td> 
+     </tr>
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="tag">[</span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> </span><span class="lit">6</span><span class="pln"> </span><span class="lit">7</span><span class="pln"> </span><span class="lit">8</span><span class="tag">]</span></code></td> 
+      <td>matrix</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Evenly Spaced Vectors</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span><span class="pun">:</span><span class="lit">4</span></code></td> 
+      <td>Create a vector from <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span></code> to <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">4</span></code>, spaced by <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span></code>, using the <a target="_blank" href="https://www.mathworks.com/help/matlab/ref/colon.html">colon operator (<code class="lang-matlab prettyprinted prettyprint" style=""><span class="pun">:</span></code>)</a>.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span><span class="pun">:</span><span class="lit">0.5</span><span class="pun">:</span><span class="lit">4</span></code></td> 
+      <td>Create a vector from <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span></code> to <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">4</span></code>, spaced by <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">0.5</span></code>.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/linspace.html"><span class="fun">linspace</span></a><span class="tag">(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">10</span><span class="pun">,</span><span class="lit">5</span><span class="tag">)</span></code></td> 
+      <td>Create a vector with <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">5</span></code> elements. The values are evenly spaced from <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span></code> to <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">10</span></code>.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Matrix Creation</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/rand.html"><span class="fun">rand</span></a><span class="tag">(</span><span class="lit">2</span><span class="tag">)</span></code></td> 
+      <td>Create a square matrix with <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">2</span></code> rows and <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">2</span></code> columns.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/zeros.html"><span class="fun">zeros</span></a><span class="tag">(</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="tag">)</span></code></td> 
+      <td>Create a rectangular matrix with <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">2</span></code> rows and <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">3</span></code> columns of <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">0</span></code>s.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/ones.html"><span class="fun">ones</span></a><span class="tag">(</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="tag">)</span></code></td> 
+      <td>Create a rectangular matrix with <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">2</span></code> rows and <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">3</span></code> columns of <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span></code>s.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Array Indexing</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">A</span><span class="tag">(</span><a href="https://www.mathworks.com/help/matlab/ref/end.html" target="_blank"><span class="noprettyprint"><span class="pln">end</span></span></a><span class="pun">,</span><span class="lit">2</span><span class="tag">)</span></code></td> 
+      <td>Access the element in the second column of the last row.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">A</span><span class="tag">(</span><span class="lit">2</span><span class="pun">,:</span><span class="tag">)</span></code></td> 
+      <td>Access the entire second row.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">A</span><span class="tag">(</span><span class="lit">1</span><span class="pun">:</span><span class="lit">3</span><span class="pun">,:</span><span class="tag">)</span></code></td> 
+      <td>Access all columns of the first three rows.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">A</span><span class="tag">(</span><span class="lit">2</span><span class="tag">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">11</span></code></td> 
+      <td>Change the value of the second element of an array to <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">11</span></code>.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Array Operations</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><pre class="lang-matlab prettyprinted prettyprint" style=""><span class="tag">[</span><span class="lit">1</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> </span><span class="lit">3</span><span class="pln"> </span><span class="lit">4</span><span class="tag">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+</span><span class="const">ans</span><span class="pln"> </span><span class="pun">=</span><span class="pln">
+     </span><span class="lit">2</span><span class="pln">     </span><span class="lit">3</span><span class="pln">
+     </span><span class="lit">4</span><span class="pln">     </span><span class="lit">5</span></pre></td> 
+      <td>Perform <a target="_blank" href="https://www.mathworks.com/help/matlab/ref/plus.html">array addition</a>.</td> 
+     </tr> 
+     <tr> 
+      <td><pre class="lang-matlab prettyprinted prettyprint" style=""><span class="tag">[</span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="tag">]</span><span class="pun">*</span><span class="tag">[</span><span class="lit">2</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="lit">2</span><span class="tag">]</span><span class="pln">
+</span><span class="const">ans</span><span class="pln"> </span><span class="pun">=</span><span class="pln">
+     </span><span class="lit">4</span><span class="pln">     </span><span class="lit">4</span><span class="pln">
+     </span><span class="lit">4</span><span class="pln">     </span><span class="lit">4</span></pre></td> 
+      <td>Perform <a target="_blank" href="https://www.mathworks.com/help/matlab/matlab_prog/array-vs-matrix-operations.html#btyv9yp-4">matrix multiplication</a>.</td> 
+     </tr> 
+     <tr> 
+      <td><pre class="lang-matlab prettyprinted prettyprint" style=""><span class="tag">[</span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="pun">;</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="lit">1</span><span class="tag">]</span><span class="pun">.*</span><span class="tag">[</span><span class="lit">2</span><span class="pln"> </span><span class="lit">2</span><span class="pun">;</span><span class="pln"> </span><span class="lit">2</span><span class="pln"> </span><span class="lit">2</span><span class="tag">]</span><span class="pln">
+</span><span class="const">ans</span><span class="pln"> </span><span class="pun">=</span><span class="pln">
+     </span><span class="lit">2</span><span class="pln">     </span><span class="lit">2</span><span class="pln">
+     </span><span class="lit">2</span><span class="pln">     </span><span class="lit">2</span></pre></td> 
+      <td>Perform <a target="_blank" href="https://www.mathworks.com/help/matlab/matlab_prog/array-vs-matrix-operations.html#bu90xxy-1">element-wise multiplication</a>.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Multiple Outputs</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="tag">[</span><span class="ident">xrow</span><span class="pun">,</span><span class="ident">xcol</span><span class="tag">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/size.html"><span class="fun">size</span></a><span class="tag">(</span><span class="ident">x</span><span class="tag">)</span></code></td> 
+      <td>Save the number of rows and columns in <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">x</span></code> to two different variables.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="tag">[</span><span class="ident">xMax</span><span class="pun">,</span><span class="ident">idx</span><span class="tag">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/max.html"><span class="fun">max</span></a><span class="tag">(</span><span class="ident">x</span><span class="tag">)</span></code></td> 
+      <td>Calculate the maximum value of <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">x</span></code> and its corresponding index value.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Documentation</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/doc.html"><span class="fun">doc</span></a><span class="pln"> </span><span style="color:rgb(160,32,240)"><span class="fun">randi</span></span></code></td> 
+      <td>Open the documentation page for the <code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">randi</span></code> function.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Plots</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/plot.html"><span class="fun">plot</span></a><span class="tag">(</span><span class="ident">x</span><span class="pun">,</span><span class="ident">y</span><span class="pun">,</span><span class="str">"ro--"</span><span class="pun">,</span><span class="ident">LineWidth</span><span class="pun">=</span><span class="lit">5</span><span class="tag">)</span></code></td> 
+      <td>Plot a red (<code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">r</span></code>) dashed (<code class="lang-matlab prettyprinted prettyprint" style=""><span class="pun">--</span></code>) line with a <br>circle (<code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">o</span></code>) marker, with a heavy line width.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/hold.html"><span class="fun">hold</span></a><span class="pln"> </span><span style="color:rgb(160,32,240)"><span class="ident">on</span></span></code></td> 
+      <td>Add the next line to the existing plot.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="fun">hold</span><span class="pln"> </span><span style="color:rgb(160,32,240)"><span class="ident">off</span></span></code></td> 
+      <td>Create new axes for the next plotted line.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/title.html"><span class="fun">title</span></a><span class="tag">(</span><span class="str">"My Title"</span><span class="tag">)</span></code></td> 
+      <td>Add a title to a plot.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/xlabel.html"><span class="fun">xlabel</span></a><span class="tag">(</span><span class="str">"x"</span><span class="tag">)</span></code><br><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/ylabel.html"><span class="fun">ylabel</span></a><span class="tag">(</span><span class="str">"y"</span><span class="tag">)</span></code></td> 
+      <td>Add labels to axes.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/legend.html"><span class="fun">legend</span></a><span class="tag">(</span><span class="str">"a"</span><span class="pun">,</span><span class="str">"b"</span><span class="pun">,</span><span class="str">"c"</span><span class="tag">)</span></code></td> 
+      <td>Add a legend to a plot.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Tables</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/matlab_prog/access-data-in-a-table.html"><span class="ident">data.HeightYards</span></a></code></td> 
+      <td>Extract the variable <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">HeightYards</span></code> from the table <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">data</span></code>.</td> 
+     </tr> 
+     <tr> 
+      <td><pre class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">data.HeightMeters</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="ident">data.HeightYards</span><span class="pun">*</span><span class="lit">0.9144</span></pre></td> 
+      <td>Derive a table variable from existing data.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Logical Indexing</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/matlab_prog/array-comparison-with-relational-operators.html"><span class="tag">[</span><span class="lit">5</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="lit">15</span><span class="tag">]</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">12</span></a></code></td> 
+      <td>Compare the elements of a vector to the value <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">12</span></code>.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/matlab_prog/find-array-elements-that-meet-a-condition.html"><span class="ident">v1</span><span class="tag">(</span><span class="ident">v1</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">6</span><span class="tag">)</span></a></code></td> 
+      <td>Extract all elements of <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">v1</span></code> that are greater than <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">6</span></code>.</td> 
+     </tr> 
+     <tr> 
+      <td><code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">x</span><span class="tag">(</span><span class="ident">x</span><span class="pun">==</span><span class="lit">999</span><span class="tag">)</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span></code></td> 
+      <td>Replace all values in <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">x</span></code> that are equal to <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">999</span></code> with the value <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span></code>.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+   <p>&nbsp;</p> 
+   <h2>Programming</h2> 
+   <table class="dataTable"> 
+    <thead> 
+     <tr> 
+      <th>Example</th> 
+      <th>Description</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr> 
+      <td><pre class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/if.html"><span class="kwd">if</span></a><span class="pln"> </span><span class="ident">x</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0.5</span><span class="pln">
+    </span><span class="ident">y</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">3</span><span class="pln">
+</span><span class="kwd">else</span><span class="pln">
+    </span><span class="ident">y</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">4</span><span class="pln">
+</span><span class="kwd">end</span></pre></td> 
+      <td>If <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">x</span></code> is greater than <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">0.5</span></code>, set <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">y</span></code> to <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">3</span></code>.<br><br>Otherwise, set <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">y</span></code> to <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">4</span></code>.</td> 
+     </tr> 
+     <tr> 
+      <td><pre class="lang-matlab prettyprinted prettyprint" style=""><a target="_blank" href="https://www.mathworks.com/help/matlab/ref/for.html"><span class="kwd">for</span></a><span class="pln"> </span><span class="ident">c</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">1</span><span class="pun">:</span><span class="lit">3</span><span class="pln">
+    </span><span class="fun">disp</span><span class="tag">(</span><span class="ident">c</span><span class="tag">)</span><span class="pln">
+</span><span class="kwd">end</span></pre></td> 
+      <td>The loop counter (<code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">c</span></code>) progresses through the<br>values <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span><span class="pun">:</span><span class="lit">3</span></code> (<code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">1</span></code>, <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">2</span></code>, and <code class="lang-matlab prettyprinted prettyprint" style=""><span class="lit">3</span></code>).<br><br>The loop body displays each value of <code class="lang-matlab prettyprinted prettyprint" style=""><span class="ident">c</span></code>.</td> 
+     </tr> 
+    </tbody> 
+   </table> 
+  </div> 
+  <div class="spacer"></div> 
+ <div class="objWrapper"></div></div> 
+ <div class="spacer"></div> 
+</div>
+                    </div>
+                </section>
+            </section>
+            <hr>
+        </div>
+    </div>
+
+    <script>
+        function listenToChapterLink(chapter, chapterLinks) {
+            chapter.addEventListener("click", handleAction);
+            chapter.addEventListener("keydown", handleAction);
+
+            function handleAction(event) {
+                if (event.type === "click" || event.key === "Enter") {
+                    const lesson = chapter.parentNode.parentNode.querySelector(".lesson");
+                    lesson.style.display = "block";
+                    const arrowElement = chapter.parentNode.querySelector(".arrow");
+                    arrowElement.classList.replace("arrow-right", "arrow-down");
+                    arrowElement.setAttribute("aria-expanded", "true");
+                    chapterLinks.forEach((item) => {
+                        item.classList.remove("current-chapter");
+                    });
+                    chapter.classList.add("current-chapter");
+                    const lessons = document.querySelectorAll(".lessonElement.current-lesson");
+                    lessons.forEach((lessonLink) => {
+                        if (lessonLink.parentNode.parentNode !== lesson) {
+                            lessonLink.classList.remove("current-lesson");
+                        }
+                    });
+                }
+            }
+        }
+        function listenToChapterLinks() {
+            const chapterLinks = document.querySelectorAll(".chapterLink");
+            for (let i = 0; i < chapterLinks.length; i++) {
+                listenToChapterLink(chapterLinks[i], chapterLinks);
+            }
+        }
+        listenToChapterLinks();
+
+
+        function setAllLessonDisplay(s) {
+            var lessons = document.getElementsByTagName("nav")[0].querySelectorAll(".lesson");
+            for (var i=0; i < lessons.length; i++) {
+                var lesson = lessons[i];
+                lesson.style.display = s;
+            }
+        }
+
+        const expandElement = document.getElementById("expand");
+        expandElement.addEventListener("click", function () {
+            setAllLessonDisplay("block");
+            const arrowelements = document.querySelectorAll(".arrow");
+            arrowelements.forEach(function (element) {
+            element.classList.replace("arrow-right", "arrow-down");
+            element.setAttribute("aria-expanded", "true");
+            });
+        }
+        );
+        const collapseElement = document.getElementById("collapse");
+        collapseElement.addEventListener("click", function () {
+            setAllLessonDisplay("none");
+            const arrowelements = document.querySelectorAll(".arrow");
+            arrowelements.forEach(function (element) {
+                element.classList.replace("arrow-down", "arrow-right");
+                element.setAttribute("aria-expanded", "false");
+            });
+        }
+        );
+
+        const initialBodyClasses = document.body.className.replace('hideClass', '');
+
+        function toggleToc(evt) {
+            if (document.body.className.indexOf("noToc") === -1) {
+                closeToc();
+            } else {
+                openToc();
+            }
+        }
+        function openToc() {
+            document.body.className = initialBodyClasses;
+        }
+        function closeToc() {
+            document.body.className = initialBodyClasses + " noToc";
+        }
+        document.getElementsByClassName("toggleContainer")[0].addEventListener("click", toggleToc);
+
+    </script>
+
+    <script>
+        /*
+         * Make Slide Show print friendly by copying the content and description div into a single div and hiding the original slideshow
+         * Revert back to original slideshow when printing event is completed
+         */
+        function makeAllSlideShowsPrintFriendly() {
+            var slideShow = document.querySelectorAll('.slide-sequence');
+            for(var i = 0; i < slideShow.length; i++) {
+                makeSlideShowPrintFriendly(slideShow[i]);
+            }
+        }
+
+        function makeSlideShowPrintFriendly(slideShow) {
+            var content = slideShow.querySelectorAll('.slide-content-container')[0];
+            var description = slideShow.querySelectorAll('.slide-description-inner-container')[0];
+            var printableSlideShowDiv = document.createElement("div");
+            printableSlideShowDiv.className = "printable-slide-show";
+            for(var i = 0; i < content.childElementCount; i++ ) {
+                var contentCopy = content.children[i].cloneNode(true);
+                contentCopy.className = "";
+                var descriptionCopy = description.children[i].cloneNode(true);
+                descriptionCopy.className = "";
+                printableSlideShowDiv.appendChild(contentCopy);
+                printableSlideShowDiv.appendChild(descriptionCopy);
+            }
+            slideShow.parentNode.insertBefore(printableSlideShowDiv, slideShow);
+        }
+
+        window.addEventListener('load', makeAllSlideShowsPrintFriendly);
+
+        function listenToArrow(element) {
+            element.addEventListener("click", toggleArrow);
+            element.addEventListener("keydown", toggleArrow);
+            function toggleArrow(event) {
+                if (event.type === "click" || event.key === "Enter") {
+                    const lesson = element.parentNode.parentNode.querySelector(".lesson");
+                    lesson.style.display = lesson.style.display === "none" ? "block" : "none";
+                    element.classList.toggle("arrow-right");
+                    element.classList.toggle("arrow-down");
+                    element.setAttribute(
+                        "aria-expanded",
+                        element.classList.contains("arrow-down") ? "true" : "false"
+                    );
+                }
+            }
+        }
+
+        function listenToArrows() {
+            const arrowelements = document.querySelectorAll(".arrow");
+            arrowelements.forEach(function (element) {
+                listenToArrow(element);
+            });
+        }
+
+        listenToArrows();
+
+        function listenToLesson(lessonElement, lessons) {
+            lessonElement.addEventListener("click", function () {
+                lessons.forEach(eachlesson => eachlesson.classList.remove('current-lesson'));
+                lessonElement.classList.add('current-lesson');
+                const activeChapterLinks = document.querySelectorAll(".chapterLink.current-chapter");
+                activeChapterLinks.forEach(chapterLink => chapterLink.classList.remove('current-chapter'));
+                const chapterLink = lessonElement.parentNode.parentNode.parentNode.querySelector(".chapterLink");
+                chapterLink.classList.add('current-chapter');
+            });
+        }
+
+        function listenToLessons() {
+            const lessons = document.querySelectorAll('.lesson li a');
+            lessons.forEach(lessonElement => listenToLesson(lessonElement, lessons));
+        }
+
+        listenToLessons();
+
+        function scrollToChapter(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView();
+        }
+
+        window.onload = function() {
+            const chapterLinks = document.getElementsByClassName('chapterLink');
+            const nav = document.querySelector("nav");
+            const toggleContainer = document.querySelector(".toggleContainer");
+            const mainContent = document.querySelector(".mainContent");
+            const quickReferenceTitle = document.querySelector(".quickReferenceTitle");
+            if (chapterLinks.length === 1) {
+                nav.classList.add("hideClass");
+                toggleContainer.classList.add("hideClass");
+                mainContent.classList.add("single-chapter");
+                quickReferenceTitle.classList.add("single-chapter");
+            } else {
+                nav.classList.remove("hideClass");
+                nav.classList.add("showClass");
+                toggleContainer.classList.remove("hideClass");
+                toggleContainer.classList.add("showClass");
+            }
+            document.body.classList.remove("hideClass");
+            document.body.classList.add("showClass");
+        };
+
+        /*
+         * When an user clicks Control + P, prevent the event from propagating to parent and print the iframe window
+         * This won't work if an user right clicks and prints the page using the popup menu on Chrome or Edge
+         */
+        window.addEventListener('keydown', function(evt) {
+            if((evt.ctrlKey || evt.metaKey) && evt.key === 'p') {
+                evt.preventDefault();
+                if (evt.stopImmediatePropagation) {
+                    evt.stopImmediatePropagation();
+                } else {
+                    evt.stopPropagation();
+                }
+                window.print();
+            }
+        }, true);
+    </script>
+
+
+</body></html>
